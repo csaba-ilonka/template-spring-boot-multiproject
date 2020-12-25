@@ -1,4 +1,4 @@
-package io.github.csabailonka.template;
+package io.github.csabailonka.template.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
