@@ -1,0 +1,3 @@
+rootProject.name = 'template-spring-boot-multiproject'
+
+include 'template-module'
