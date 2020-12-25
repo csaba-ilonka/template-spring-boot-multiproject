@@ -7,7 +7,7 @@ plugins {
 
 allprojects {
     group 'io.github.csaba-ilonka'
-    version '1.0.0'
+    version '1.1.0'
 }
 
 subprojects {
@@ -20,11 +20,23 @@ subprojects {
 
     repositories {
         mavenCentral()
+        mavenLocal()
     }
 
-    generateLombokConfig.enabled = false
+    dependencyManagement {
+        imports {
+            //noinspection UnnecessaryQualifiedReference
+            mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+        }
+    }
+
     lombok {
         version = "1.18.16"
+    }
+
+    java {
+        withJavadocJar()
+        withSourcesJar()
     }
 
     test {
@@ -44,6 +56,7 @@ idea {
     module {
         excludeDirs += file('.idea')
         excludeDirs += file('gradle')
+        excludeDirs += file('logs')
         downloadJavadoc = true
         downloadSources = true
     }
